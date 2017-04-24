@@ -1,0 +1,23 @@
+version: '3'
+services:
+  frontend:
+    build: ./client
+    command: bash -c "webpack -w"
+    volumes:
+      - ./client:/usr/src/client
+      - front-dist:/usr/src/client/dist
+  # backend:
+  #   command: bash -c "pm2 start --no-daemon server.js --watch | bunyan"
+  #   build: ./backend
+  #   volumes:
+  #     - ./backend:/usr/src/app
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      # - ./nginx-sites:/etc/nginx/conf.d
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - front-dist:/var/www
+volumes:
+  front-dist:
