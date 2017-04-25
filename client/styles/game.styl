@@ -1,0 +1,30 @@
+html, body
+    width 100%
+    height 100%
+
+.background
+    background-color #EFFFDE
+    height 100%
+    width 100%
+
+.wide-screen-mode
+    display flex
+    flex-direction column
+    justify-content space-between
+    width inherit
+    height inherit
+    .wide-block
+        background-color #183442
+        width 100%
+        height 25%
+
+.gengar
+    animation fight 0.8s steps(10)
+    background url('../images/intro.gif')
+    height 60px
+    width 60px
+    z-index 2
+
+@keyframes fight
+    100%
+        background-position-x -202px
