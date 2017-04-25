@@ -27,6 +27,11 @@ module.exports = {
         loader: 'file-loader?name=[name].[ext]'
       },
       {
+          test: /\.(png|jpeg|jpg|gif)$/,
+          include: path.join(__dirname, 'images/'),
+          use: 'file-loader?name=images/[name].[ext]&context=images/'
+      },
+      {
         test: /\index.html$/,
         loader: 'html-loader?name=[name].[ext]'
       },
