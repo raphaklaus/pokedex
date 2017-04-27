@@ -19,12 +19,29 @@ html, body
         height 25%
 
 .gengar
-    animation fight 0.8s steps(10)
-    background url('../images/intro.gif')
-    height 60px
-    width 60px
-    z-index 2
+    animation gengar-fight 1.8s steps(3)
+    background url('../images/gengar.png')
+    width 119px
+    height 80px
 
-@keyframes fight
+.nido-evasion
+    background url('../images/nido.png')
+    width 66px
+    height 66px
+    background-position-x -198px
+
+.nido-attack
+    animation nido-attack-animation 0.8s steps(3) infinite
+    background url('../images/nido.png')
+    width 66px
+    height 66px
+
+@keyframes gengar-fight
     100%
-        background-position-x -202px
+        background-position-x -357px
+
+@keyframes nido-attack-animation
+    0%
+        background-position-x -66px
+    100%
+        background-position-x -264px
