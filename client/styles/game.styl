@@ -18,30 +18,68 @@ html, body
         width 100%
         height 25%
 
+.game-container
+    display flex
+    justify-content space-around
+    align-items flex-end
+    width inherit
+    height inherit
+
+// .parent
+//     position relative
+//     width 70%
+
 .gengar
+    // position: absolute;
+    // left: 0;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    display block
     animation gengar-fight 1.8s steps(3)
     background url('../images/gengar.png')
-    width 119px
-    height 80px
+    background-size 36vw
+    width 12vw
+    height 8vw
+    // width 119px
+    // height 80px
+
+.gengar-translating
+    animation gengar-intro-animation 1.8s linear
+    animation-fill-mode forwards
+
+.nido-translating
+    animation nido-intro-animation 1.8s linear
+    animation-fill-mode forwards
 
 .nido-evasion
     background url('../images/nido.png')
-    width 66px
-    height 66px
-    background-position-x -198px
+    background-size 33vw
+    width 9vw
+    height 7vw
+    background-position-x 0vw
 
 .nido-attack
-    animation nido-attack-animation 0.8s steps(3) infinite
+    animation nido-attack-animation 0.8s steps(2)
+    animation-fill-mode forwards
     background url('../images/nido.png')
-    width 66px
-    height 66px
+    background-size 32vw
+    width 8vw
+    height 7vw
+    background-position-x -8vw
+
+characters-intro-animation(name,amount)
+    @keyframes {name}-intro-animation
+        100%
+            transform translate(amount)
+
+characters-intro-animation("gengar", -30vw)
+characters-intro-animation("nido", 30vw)
 
 @keyframes gengar-fight
     100%
-        background-position-x -357px
+        background-position-x -36vw
 
 @keyframes nido-attack-animation
-    0%
-        background-position-x -66px
     100%
-        background-position-x -264px
+        background-position-x -24vw
