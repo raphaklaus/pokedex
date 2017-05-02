@@ -1,11 +1,89 @@
 html, body
     width 100%
     height 100%
+    cursor pointer
 
 .background
     background-color #EFFFDE
+    display flex
+    align-items flex-end
+    flex-direction column
+    justify-content flex-end
     height 100%
     width 100%
+
+.scrollable
+    height auto
+
+.comments-window
+    order 5
+    .comments
+        padding 8px
+        word-break break-all
+
+p
+    font-size 16px
+    padding 10px
+
+input[type="text"], textarea
+    background-color #EFFFDE
+    border none
+    outline none
+    font-family 'pkmn_rbygscregular'
+    margin-bottom 5px
+    width 100%
+
+button
+    background-color white
+    width 100%
+    padding 4px
+
+//dry
+.pokemon-info
+    display flex
+    flex-direction column
+    justify-content center
+    height inherit
+
+.extra-info
+    order 3
+
+.status
+    order 2
+
+.centered-character
+    height inherit
+    display flex
+    align-items center
+    justify-content center
+
+//dry
+.oak-intro
+    display flex
+    flex-direction column
+    justify-content center
+    height inherit
+    width: 100%
+
+.comment-form
+    order: 4
+
+.border
+    border-image url('../images/ui-border.png') 7 fill repeat
+    border-style solid
+    border-width 7px
+    height auto
+    padding 10px
+    width calc(100% - 7*2px - 20px)
+
+.pokemon-list
+    display flex
+    flex-direction row
+    flex-wrap wrap
+    word-break break-all
+    justify-content space-between
+    li
+        margin-right 5px
 
 .wide-screen-mode
     display flex
@@ -25,49 +103,6 @@ html, body
     width inherit
     height inherit
 
-// .parent
-//     position relative
-//     width 70%
-
-.gengar
-    // position: absolute;
-    // left: 0;
-    // right: 0;
-    // top: 0;
-    // bottom: 0;
-    display block
-    animation gengar-fight 1.8s steps(3)
-    background url('../images/gengar.png')
-    background-size 36vw
-    width 12vw
-    height 8vw
-    // width 119px
-    // height 80px
-
-.gengar-translating
-    animation gengar-intro-animation 1.8s linear
-    animation-fill-mode forwards
-
-.nido-translating
-    animation nido-intro-animation 1.8s linear
-    animation-fill-mode forwards
-
-.nido-evasion
-    background url('../images/nido.png')
-    background-size 33vw
-    width 9vw
-    height 7vw
-    background-position-x 0vw
-
-.nido-attack
-    animation nido-attack-animation 0.8s steps(2)
-    animation-fill-mode forwards
-    background url('../images/nido.png')
-    background-size 32vw
-    width 8vw
-    height 7vw
-    background-position-x -8vw
-
 characters-intro-animation(name,amount)
     @keyframes {name}-intro-animation
         100%
@@ -76,6 +111,62 @@ characters-intro-animation(name,amount)
 characters-intro-animation("gengar", -30vw)
 characters-intro-animation("nido", 30vw)
 
+.oak
+    width: 6vw
+
+.pokeball
+    animation pokeball-rotating-animation 0.5s linear infinite
+    width: 12px
+
+.gengar
+    animation gengar-fight 1.8s steps(3)
+    background url('../images/gengar.png')
+    background-size 36vw
+    width 12vw
+    height 8vw
+
+.gengar-translating
+    animation gengar-intro-animation 1.8s linear
+    animation-fill-mode forwards
+
+.nido-translating
+    transition transform 2s
+    // transition-duration 900ms
+    transform translateX(30vw)
+    // animation nido-intro-animation 1.8s linear
+    // animation-fill-mode forwards
+
+.nido-evasion
+    background url('../images/nido.png')
+    background-size 33vw
+    width 9vw
+    height 7vw
+    background-position-x 0vw
+    // animation-fill-mode forwards
+
+.nido-attack
+    animation nido-attack-animation 0.8s steps(2), nido-intro-animation 1.8s linear
+    animation-fill-mode forwards
+    background url('../images/nido.png')
+    background-size 32vw
+    width 8vw
+    height 7vw
+    background-position-x -8vw
+    transform translate(30vw)
+
+.nido-bumping
+    // transform translateX(30vw)
+    animation nido-bumping-animation 1.25s ease
+    // animation-fill-mode forwards
+
+@keyframes nido-bumping-animation
+    0%
+        transform rotate(0deg) translateX(1vw) rotate(0deg)
+    50%
+        transform rotate(-180deg) translateX(1vw) rotate(180deg)
+    100%
+        transform rotate(0deg) translateX(1vw) rotate(0deg)
+
 @keyframes gengar-fight
     100%
         background-position-x -36vw
@@ -83,3 +174,12 @@ characters-intro-animation("nido", 30vw)
 @keyframes nido-attack-animation
     100%
         background-position-x -24vw
+
+@keyframes pokeball-rotating-animation
+    50%
+        transform rotate(25deg)
+    100%
+        transform rotate(0deg)
+
+.hidden
+    display none
