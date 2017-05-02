@@ -21,7 +21,7 @@ app.use(express.static(`${__dirname}/../dist`));
 
 app.get('/api/pokemon/list', cache('2 hours'), (req, res, next) => {
   let options = {
-    uri: 'http://pokeapi.co/api/v2/pokemon/',
+    uri: `http://pokeapi.co/api/v2/pokemon/?offset=${req.query.offset || 0}`,
     method: 'GET',
     json: true
   };
