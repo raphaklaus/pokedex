@@ -4,9 +4,11 @@ import './styles/font-face.styl';
 import './styles/reset.styl';
 import './styles/game.styl';
 
+import './components/intro/intro.view.html';
 import './components/home/home.view.html';
 import './components/list/list.view.html';
 
+import { IntroController } from './components/intro/intro.controller.js';
 import { HomeController } from './components/home/home.controller.js';
 import { ListController } from './components/list/list.controller.js';
 import { Router } from './router.js';
@@ -35,5 +37,6 @@ app.config(($httpProvider) => {
 
 Router.setup(app);
 
+app.controller('IntroController', IntroController);
 app.controller('HomeController', HomeController);
 app.controller('ListController', ListController);
