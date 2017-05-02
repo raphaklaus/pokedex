@@ -1,0 +1,41 @@
+<section class="background scrollable">
+  <section class="border loading" ng-show="ctrl.loadingPokemonInfo">
+    <p>
+      Loading...
+      <img src="../../images/pokeball.png" class="pokeball">
+    </p>
+  </section>
+  <section class="pokemon-info" ng-hide="ctrl.loadingPokemonInfo">
+    <div class="centered-character image">
+      <img ng-src="{{ctrl.pokemon.image}}">
+    </div>
+    <div class="border status">
+      <ul class="status-list">
+        <li ng-repeat="status in ctrl.pokemon.status" ng-bind="status"></li>
+      </ul>
+    </div>
+    <div class="border description">
+      <p ng-bind="ctrl.pokemon.description"></p>
+    </div>
+    <div class="border extra-info">
+      <p>Other people around the world are commenting! Please, leave your comment too!</p>
+    </div>
+    <div class="border comment-form">
+      <form ng-submit="ctrl.postComment()">
+        <input type="text" placeholder="your name" ng-model="ctrl.user" ng-required="true">
+        <textarea placeholder="leave your comment" rows="8" cols="40" ng-model="ctrl.text" ng-required="true"></textarea>
+        <button type="submit">ok</button>
+      </form>
+    </div>
+    <div class="border comments-window">
+      <p class="comments-counter">{{ctrl.comments.length || 0}} Comments</p>
+      <div class="comments" ng-repeat="comment in ctrl.comments | orderBy: '-createdAt'">
+        <span ng-bind="comment.user">
+        </span>
+        <span ng-bind="comment.createdAt | date: 'dd/MM/yyyy'">
+        </span>
+        <p ng-bind="comment.text"></p>
+      </div>
+    </div>
+  </section>
+</section>

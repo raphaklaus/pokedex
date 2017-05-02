@@ -1,0 +1,17 @@
+<section class="background">
+  <section class="oak-intro">
+    <div class="centered-character">
+      <img src="../../images/oak.png" class="oak">
+    </div>
+    <div class="border">
+      <p>Welcome to the Pokemon World List! Please choose a Pokemon to know more informations about it</p>
+    </div>
+    <div class="border">
+      <ul class="pokemon-list">
+        <li ng-repeat="pokemon in ctrl.pokemons">
+          <a ui-sref="list({id: pokemon.number})" ng-bind="pokemon.label"></a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</section>
