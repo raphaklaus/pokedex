@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start server.js"
+  },
+  "author": "Raphael D. Pinheiro (raphaklaus)",
+  "license": "MIT",
+  "dependencies": {
+    "apicache": "^0.8.4",
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.7",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0"
+  }
+}
