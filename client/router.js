@@ -3,8 +3,13 @@ class Router {
     app.config(($stateProvider, $urlRouterProvider) => {
       $urlRouterProvider.otherwise('/');
       $stateProvider
-        .state('home', {
+        .state('intro', {
           url: '/',
+          templateUrl: 'intro/intro.view.html',
+          controller: 'IntroController as ctrl',
+        })
+        .state('home', {
+          url: '/home',
           templateUrl: 'home/home.view.html',
           controller: 'HomeController as ctrl',
         })
