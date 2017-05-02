@@ -5,8 +5,8 @@ const webpack = require('webpack'),
 
 module.exports = {
   entry: {
-      app: './entry.js',
-      vendor: ['axios']
+    app: './entry.js',
+    vendor: ['angular', 'angular-ui-router']
   },
   module: {
     rules: [
@@ -27,14 +27,18 @@ module.exports = {
         loader: 'file-loader?name=[name].[ext]'
       },
       {
-          test: /\.(png|jpeg|jpg|gif)$/,
-          include: path.join(__dirname, 'images/'),
-          use: 'file-loader?name=images/[name].[ext]&context=images/'
+        test: /\.(png|jpeg|jpg|gif)$/,
+        include: path.join(__dirname, 'images/'),
+        use: 'file-loader?name=images/[name].[ext]&context=images/'
       },
       {
-        test: /\index.html$/,
+        test: /index.html$/,
         loader: 'html-loader?name=[name].[ext]'
-      },
+      }, {
+        test: /\.html$/,
+        include: path.resolve(__dirname, 'components/'),
+        loader: `ngtemplate-loader?relativeTo=${__dirname}/components/!html-loader`
+      }
     ]
   },
   output: {
