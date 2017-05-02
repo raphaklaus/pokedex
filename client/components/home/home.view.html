@@ -1,12 +1,17 @@
-<section class="background">
+<section class="background game-container">
   <section class="oak-intro">
     <div class="centered-character">
-      <img src="../../images/oak.png" class="oak">
+      <img src="../../images/oak.png" class="oak" ng-click="ctrl.paginate()">
     </div>
     <div class="border">
       <p>Welcome to the Pokemon World List! Please choose a Pokemon to know more informations about it</p>
+      <p>If you want to see more Pokemons, click on me</p>
     </div>
     <div class="border">
+      <div ng-show="ctrl.loadingPokemonList">
+        Loading...
+        <img src="../../images/pokeball.png" class="pokeball">
+      </div>
       <ul class="pokemon-list">
         <li ng-repeat="pokemon in ctrl.pokemons">
           <a ui-sref="list({id: pokemon.number})" ng-bind="pokemon.label"></a>

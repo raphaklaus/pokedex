@@ -1,16 +1,30 @@
 class HomeController {
   constructor($http) {
     this._$http = $http;
-    this.comments = [];
+    this.pokemons = [];
 
-    this._$http.get('/api/pokemon/list').then(response => {
-      this.pokemons = [];
+    this.offset = 0;
+    this.getList(this.offset);
+  }
+
+  getList(offset) {
+    this.loadingPokemonList = true;
+
+    this._$http.get(`/api/pokemon/list?offset=${offset || 0}`).then(response => {
+      this.loadingPokemonList = false;
+
       response.data.results.map((item, index) => {
-        let pokemonNumber = index + 1;
+        let pokemonNumber = this.offset + index + 1;
         this.pokemons.push({ label: `#${pokemonNumber} - ${item.name}`,
           number: pokemonNumber });
       });
-    }).catch(error => console.log(error)); // todo handle this errors better
+    });
+  }
+
+  paginate() {
+    this.offset += 20;
+    this.pokemons = [];
+    this.getList(this.offset);
   }
 }
 

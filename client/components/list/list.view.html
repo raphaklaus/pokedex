@@ -1,4 +1,4 @@
-<section class="background scrollable">
+<section class="background game-container scrollable">
   <section class="border loading" ng-show="ctrl.loadingPokemonInfo">
     <p>
       Loading...
@@ -6,8 +6,8 @@
     </p>
   </section>
   <section class="pokemon-info" ng-hide="ctrl.loadingPokemonInfo">
-    <div class="centered-character image">
-      <img ng-src="{{ctrl.pokemon.image}}">
+    <div class="centered-character">
+      <img class="pokemon" ng-src="{{ctrl.pokemon.image}}">
     </div>
     <div class="border status">
       <ul class="status-list">
