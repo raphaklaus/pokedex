@@ -22,6 +22,5 @@ services:
     image: webnicer/protractor-headless
     volumes:
       - ./client:/protractor
-      - /dev/shm:/dev/shm
 volumes:
   front-dist:
