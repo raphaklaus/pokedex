@@ -1,6 +1,4 @@
-import './styles/font-face.styl';
-import './styles/reset.styl';
-import './styles/game.styl';
+import './styles/main.styl';
 
 import { IntroController } from './components/intro/intro.controller.js';
 import { HomeController } from './components/home/home.controller.js';
