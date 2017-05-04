@@ -1,3 +1,5 @@
+import '../../components/list/list.view.html';
+
 class ListController {
   constructor($http, $state, $stateParams) {
     this._$http = $http;
