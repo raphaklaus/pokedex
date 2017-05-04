@@ -19,8 +19,9 @@ services:
   database:
     image: mongo
   tester:
-    image: caltha/protractor
+    image: webnicer/protractor-headless
     volumes:
-      - ./client:/project
+      - ./client:/protractor
+      - /dev/shm:/dev/shm
 volumes:
   front-dist:
