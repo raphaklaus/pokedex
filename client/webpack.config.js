@@ -1,6 +1,7 @@
 const webpack = require('webpack'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebPackPlugin = require('html-webpack-plugin'),
+  FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
   path = require('path');
 
 module.exports = {
@@ -50,6 +51,13 @@ module.exports = {
     new HtmlWebPackPlugin({ template: 'index.html', inject: 'body' }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor']
+    }),
+    new FaviconsWebpackPlugin({
+      logo: path.resolve(__dirname, './images/favicon.png'),
+      background: '#EFFFDE',
+      title:'PokeList',
+      persistentCache: true,
+      inject: true
     })
   ]
 };
