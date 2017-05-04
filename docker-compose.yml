@@ -4,13 +4,13 @@ services:
     build: ./client
     command: bash -c "webpack -p"
     volumes:
-      #- ./client:/usr/src/client # For dev env
+      - ./client:/usr/src/client # For dev env
       - front-dist:/usr/src/client/dist
   backend:
     command: bash -c "pm2 start --no-daemon server.js --watch"
     build: ./backend
     volumes:
-      #- ./backend:/usr/src/app # For dev env
+      - ./backend:/usr/src/app # For dev env
       - front-dist:/usr/src/dist
     environment:
       - MONGO_URL=mongodb://pokelist_database_1:27017/pokelist
