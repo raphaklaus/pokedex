@@ -9,7 +9,7 @@ module.exports = function(expect) {
     });
 
     it('should have 5 dialogs', () => {
-      expect($$('.pokemon-info .border').count()).to.eventually.equal(5);
+      expect($$('.pokemon-info .window').count()).to.eventually.equal(5);
     });
 
     it('should post 2 comments and check if they were posted', () => {

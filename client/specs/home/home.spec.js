@@ -9,7 +9,7 @@ module.exports = function(expect) {
     });
 
     it('should have 2 dialogs', () => {
-      expect($$('.oak-intro .border').count()).to.eventually.equal(2);
+      expect($$('.oak-intro .window').count()).to.eventually.equal(2);
     });
 
     it('should have 20 pokemons inside dialog', () => {

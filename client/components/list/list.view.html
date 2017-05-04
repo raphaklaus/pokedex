@@ -1,5 +1,5 @@
 <section class="background game-container scrollable">
-  <section class="border loading" ng-show="ctrl.loadingPokemonInfo">
+  <section class="window loading" ng-show="ctrl.loadingPokemonInfo">
     <p>
       Loading...
       <img src="../../images/pokeball.png" class="pokeball">
@@ -9,25 +9,25 @@
     <div class="centered-character">
       <img class="pokemon" ng-src="{{ctrl.pokemon.image}}">
     </div>
-    <div class="border status">
+    <div class="window status">
       <ul class="status-list">
         <li ng-repeat="status in ctrl.pokemon.status" ng-bind="status"></li>
       </ul>
     </div>
-    <div class="border description">
+    <div class="window description">
       <p ng-bind="ctrl.pokemon.description"></p>
     </div>
-    <div class="border extra-info">
+    <div class="window extra-info">
       <p>Other people around the world are commenting! Please, leave your comment too!</p>
     </div>
-    <div class="border comment-form">
+    <div class="window comment-form">
       <form ng-submit="ctrl.postComment()">
         <input type="text" placeholder="your name" ng-model="ctrl.user" ng-required="true">
         <textarea placeholder="leave your comment" rows="8" cols="40" ng-model="ctrl.text" ng-required="true"></textarea>
         <button type="submit">ok</button>
       </form>
     </div>
-    <div class="border comments-window">
+    <div class="window comments-window">
       <p class="comments-counter">{{ctrl.comments.length || 0}} Comments</p>
       <div class="comments" ng-repeat="comment in ctrl.comments | orderBy: '-createdAt'">
         <span ng-bind="comment.user">
