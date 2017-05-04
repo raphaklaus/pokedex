@@ -2,7 +2,7 @@ version: '3'
 services:
   frontend:
     build: ./client
-    command: bash -c "webpack -w"
+    command: bash -c "webpack -p"
     volumes:
       - ./client:/usr/src/client
       - front-dist:/usr/src/client/dist
