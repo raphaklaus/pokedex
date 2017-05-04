@@ -1,18 +1,19 @@
-$backgroundColor = #EFFFDE
-$windowPadding = 10px
-$windowBorderWidth = 7px
+backgroundColor = #EFFFDE
+windowPadding = 10px
+windowBorderWidth = 7px
 
 html, body
-    width 100%
+    background-color backgroundColor
     height 100%
     cursor pointer
+    width 100%
 
 p
     font-size 16px
     padding 10px
 
 input[type="text"], textarea
-    background-color $backgroundColor
+    background-color backgroundColor
     border none
     outline none
     font-family 'pkmn_rbygscregular'
@@ -23,9 +24,6 @@ button
     background-color white
     width 100%
     padding 4px
-
-.background
-    background-color $backgroundColor
 
 .game-container
     display flex
@@ -53,11 +51,17 @@ button
     border-width 7px
     height auto
     padding 10px
-    width calc(100% - $windowBorderWidth * 2 - $windowPadding * 2)
+    width "calc(100% - %s * 2 - %s * 2)" % (windowBorderWidth windowPadding)
 
 .pokeball
     animation pokeball-rotating-animation 0.5s linear infinite
     width: 12px
+
+@keyframes pokeball-rotating-animation
+    50%
+        transform rotate(25deg)
+    100%
+        transform rotate(0deg)
 
 @require './font-face.styl'
 @require './reset.styl'
