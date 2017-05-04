@@ -18,5 +18,9 @@ services:
       - "80:80"
   database:
     image: mongo
+  tester:
+    image: caltha/protractor
+    volumes:
+      - ./client:/project
 volumes:
   front-dist:
