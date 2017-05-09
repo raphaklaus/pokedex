@@ -2,6 +2,7 @@ const webpack = require('webpack'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebPackPlugin = require('html-webpack-plugin'),
   FaviconsWebpackPlugin = require('favicons-webpack-plugin'),
+  ngAnnotatePlugin = require('ng-annotate-webpack-plugin'),
   path = require('path');
 
 module.exports = {
@@ -58,6 +59,9 @@ module.exports = {
       title:'PokeList',
       persistentCache: true,
       inject: true
+    }),
+    new ngAnnotatePlugin({
+      add: true
     })
   ]
 };
