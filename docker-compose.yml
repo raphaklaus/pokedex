@@ -2,7 +2,6 @@ version: '3'
 services:
   frontend:
     build: ./client
-    command: bash -c "webpack -p"
     volumes:
     #  - ./client:/usr/src/client # For dev env
       - front-dist:/usr/src/client/dist
@@ -14,6 +13,8 @@ services:
       - front-dist:/usr/src/dist
     environment:
       - MONGO_URL=mongodb://pokelist_database_1:27017/pokelist
+    depends_on:
+      - frontend
     ports:
       - "80:80"
   database:

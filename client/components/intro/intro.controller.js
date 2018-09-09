@@ -1,5 +1,3 @@
-import '../../components/intro/intro.view.html';
-
 class IntroController {
   constructor($state) {
     this._$state = $state;

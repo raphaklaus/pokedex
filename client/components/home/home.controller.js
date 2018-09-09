@@ -1,5 +1,3 @@
-import '../../components/home/home.view.html';
-
 class HomeController {
   constructor($http) {
     this._$http = $http;

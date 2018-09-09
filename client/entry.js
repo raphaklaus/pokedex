@@ -1,5 +1,7 @@
 import './styles/main.styl';
 
+import angular from 'angular';
+import '@uirouter/angularjs';
 import { IntroController } from './components/intro/intro.controller.js';
 import { HomeController } from './components/home/home.controller.js';
 import { ListController } from './components/list/list.controller.js';

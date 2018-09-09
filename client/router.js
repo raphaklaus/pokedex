@@ -1,3 +1,7 @@
+import IntroHTML from './components/intro/intro.view.html';
+import homeHTML from './components/home/home.view.html';
+import listHTML from './components/list/list.view.html';
+
 class Router {
   static setup(app) {
     app.config(($stateProvider, $urlRouterProvider) => {
@@ -5,12 +9,12 @@ class Router {
       $stateProvider
         .state('intro', {
           url: '/',
-          templateUrl: 'intro/intro.view.html',
+          template: IntroHTML,
           controller: 'IntroController as ctrl',
         })
         .state('home', {
           url: '/home',
-          templateUrl: 'home/home.view.html',
+          template: homeHTML,
           controller: 'HomeController as ctrl',
         })
         .state('list', {
@@ -18,7 +22,7 @@ class Router {
           params: {
             id: null
           },
-          templateUrl: 'list/list.view.html',
+          template: listHTML,
           controller: 'ListController as ctrl',
         });
     });

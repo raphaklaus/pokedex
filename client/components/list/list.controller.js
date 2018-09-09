@@ -1,5 +1,3 @@
-import '../../components/list/list.view.html';
-
 class ListController {
   constructor($http, $state, $stateParams) {
     this._$http = $http;
@@ -30,18 +28,18 @@ class ListController {
   postComment() {
     this._$http.post('/api/comment', { user: this.user, text: this.text,
       pokemon: this.pokemonNumber }).then(response => {
-        this.comments.push(response.data);
-        this.user = '';
-        this.text = '';
-      });
+      this.comments.push(response.data);
+      this.user = '';
+      this.text = '';
+    });
   }
 
   getComments() {
     this._$http.get(`/api/comments/${this.pokemonNumber}`)
-    .then(response => {
-      this.comments = response.data;
-      this.loading = false;
-    });
+      .then(response => {
+        this.comments = response.data;
+        this.loading = false;
+      });
   }
 }
 

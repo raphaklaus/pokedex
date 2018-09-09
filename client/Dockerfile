@@ -1,6 +1,4 @@
-FROM node:boron
-
-RUN npm install webpack -g
+FROM node:carbon
 
 RUN mkdir -p /usr/src/client
 
@@ -11,4 +9,4 @@ RUN npm install
 
 COPY . /usr/src/client
 
-CMD webpack -p
+CMD ./node_modules/.bin/parcel build /usr/src/client/index.html
