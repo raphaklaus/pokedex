@@ -15,7 +15,7 @@
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.7",
-    "pm2": "^3.5.1",
+    "pm2": "^5.2.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.0"
   }
